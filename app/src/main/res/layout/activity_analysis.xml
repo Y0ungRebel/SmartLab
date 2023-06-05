@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".Analysis">
+
+    <TextView
+        android:id="@+id/skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50px"
+        android:layout_marginLeft="60px"
+        android:text="Пропустить"
+        android:textSize="20dp"
+        android:textColor="#57A9FF"
+        android:onClick="onSkip"
+        android:clickable="true"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="450px"
+        android:layout_height="450px"
+        android:layout_marginTop="40px"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/corner_plus"/>
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="600px"
+        android:layout_height="600px"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="460dp"
+        app:srcCompat="@drawable/tube" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:layout_marginTop="230dp"
+        android:textColor="#00B712"
+        android:text="Анализы" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="13dp"
+        android:gravity="center"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="22dp"
+        android:textColor="#939396"
+        android:text="Экспресс сбор и получение проб" />
+
+    <ImageButton
+        android:id="@+id/btn_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@+id/btn_second"
+        android:backgroundTint="@color/white"
+        android:onClick="onClick1"
+        app:srcCompat="@drawable/ellipse_full" />
+
+    <ImageButton
+        android:id="@+id/btn_second"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:backgroundTint="@color/white"
+        android:onClick="onClick2"
+        app:srcCompat="@drawable/ellipse_empty"/>
+
+    <ImageButton
+        android:id="@+id/btn_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/btn_second"
+        android:backgroundTint="@color/white"
+        android:onClick="onClick3"
+        app:srcCompat="@drawable/ellipse_empty" />
+</RelativeLayout>
