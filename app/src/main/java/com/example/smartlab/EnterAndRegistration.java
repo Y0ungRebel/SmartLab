@@ -23,5 +23,4 @@ public class EnterAndRegistration extends AppCompatActivity {
         Intent intent = new Intent(this, EnterCode.class);
         startActivity(intent);
     }
-
 }
