@@ -2,6 +2,7 @@ package com.example.smartlab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -52,5 +53,9 @@ public class Analysis extends AppCompatActivity {
         btn_second.setImageResource(R.drawable.ellipse_empty);
         btn_third.setImageResource(R.drawable.ellipse_full);
         image.setImageResource(R.drawable.scientist);
+    }
+    public void onSkip(View view){
+        Intent intent = new Intent(this, EnterAndRegistration.class);
+        startActivity(intent);
     }
 }

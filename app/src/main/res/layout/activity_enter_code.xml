@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EnterCode">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Введите код из E-mail"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="100dp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/firstNum"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="30dp"
+        android:gravity="center"
+        android:ems="10"
+        android:maxLength="1"
+        android:background="@drawable/edit_email"
+        android:inputType="number|phone"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <EditText
+        android:id="@+id/secondNum"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_toRightOf="@+id/firstNum"
+        android:layout_marginLeft="40dp"
+        android:gravity="center"
+        android:ems="10"
+        android:maxLength="1"
+        android:background="@drawable/edit_email"
+        android:inputType="number|phone"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <EditText
+        android:id="@+id/thirdNum"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="40dp"
+        android:layout_toRightOf="@+id/secondNum"
+        android:gravity="center"
+        android:ems="10"
+        android:maxLength="1"
+        android:background="@drawable/edit_email"
+        android:inputType="number|phone"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <EditText
+        android:id="@+id/fourthNum"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="320dp"
+        android:gravity="center"
+        android:ems="10"
+        android:maxLength="1"
+        android:background="@drawable/edit_email"
+        android:inputType="number|phone"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="126dp" />
+
+    <TextView
+        android:id="@+id/infoTimer"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="85dp"
+        android:layout_marginTop="330dp"
+        android:textColor="#7E7E9A"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:text="Отправить код повторно можно будет через       секунд"/>
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="214dp"
+        android:layout_marginTop="347dp"
+        android:textColor="#7E7E9A"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:text="59"/>
+</RelativeLayout>

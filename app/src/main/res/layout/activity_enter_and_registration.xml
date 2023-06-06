@@ -20,8 +20,8 @@
         android:layout_height="wrap_content"
         android:text="Добро пожаловать!"
         android:textColor="#000000"
-        android:textSize="30dp"
-        android:layout_marginTop="95dp"
+        android:textSize="28dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="15dp"
         android:textStyle="bold"
         android:layout_toRightOf="@+id/hello"/>
@@ -45,19 +45,58 @@
         android:layout_marginTop="90dp"
         android:textColor="#7E7E9A"
         android:layout_below="@+id/infoText"
-        android:textSize="14dp"
+        android:textSize="15dp"
         android:text="Вход по E-mail" />
 
     <EditText
         android:id="@+id/editEmail"
-        android:layout_width="370dp"
+        android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="example@mail.ru"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:inputType="textEmailAddress"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/infoEmail"/>
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/btn_next_reg"
+        android:layout_below="@id/editEmail"
+        android:textColor="#FFFFFF"
+        android:textSize="14dp"
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:text="Далее"/>
+
+    <TextView
+        android:id="@+id/infoEnter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="630dp"
+        android:textColor="#7E7E9A"
+        android:textSize="15dp"
+        android:text="Или войдите с помощью" />
+
+    <Button
+        android:id="@+id/btnLogYandex"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:gravity="center"
+        android:background="@drawable/edit_email"
+        android:layout_below="@+id/infoEnter"
+        android:layout_marginTop="15dp"
+        android:textColor="#000000"
+        android:textSize="14dp"
+        android:onClick="onClick"
+        android:textAllCaps="false"
+        android:text="Войти с Яндекс" />
 </RelativeLayout>
