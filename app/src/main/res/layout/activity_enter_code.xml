@@ -28,6 +28,7 @@
         android:maxLength="1"
         android:background="@drawable/edit_email"
         android:inputType="number|phone"
+        android:imeOptions="actionNext"
         tools:layout_editor_absoluteX="20dp"
         tools:layout_editor_absoluteY="126dp" />
 

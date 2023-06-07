@@ -1,11 +1,18 @@
 package com.example.smartlab;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,8 +20,9 @@ import android.widget.Toast;
 public class EnterCode extends AppCompatActivity {
 
     EditText first_num, second_num, third_num, fourth_num;
-    int time, code, num1, num2, num3, num4;
+    int time, CorVal, ResVal,  c1, c2, c3, c4, num1, num2, num3, num4;
     String num_one, num_two, num_three, num_four;
+    String FCode="";
     TextView timer, timeInfo;
 
     @Override
@@ -27,7 +35,7 @@ public class EnterCode extends AppCompatActivity {
         third_num = findViewById(R.id.thirdNum);
         fourth_num = findViewById(R.id.fourthNum);
         timeInfo = findViewById(R.id.infoTimer);
-        code = 12;
+        CorVal = 1362;
         time = 59;
         timer = findViewById(R.id.timer);
         new CountDownTimer(59000, 1000) {
@@ -41,22 +49,102 @@ public class EnterCode extends AppCompatActivity {
                 timeInfo.setText("Отправить код заново");
             }
         }.start();
+        //1ый ЭТ с перебросом на 2ой
+        first_num.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(first_num.getText().toString().length()==1)
+                {
+                    FCode += first_num.getText().toString();
+                    second_num.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //2ый ЭТ с перебросом на 3ий
+        second_num.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(second_num.getText().toString().length()==1)
+                {
+                    FCode += second_num.getText().toString();
+                    third_num.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //3ий ЭТ с перебросом на 4ый
+        third_num.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(third_num.getText().toString().length()==1)
+                {
+                    FCode += third_num.getText().toString();
+                    fourth_num.requestFocus();
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        //4ий ЭТ с проверкой
+        fourth_num.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if(fourth_num.getText().toString().length()==1)
+                {
+                    FCode += fourth_num.getText().toString();
+                    ResVal = Integer.parseInt(FCode);
+                    fourth_num.requestFocus();
+                }
+                if (CorVal != ResVal){
+                    FCode = "";
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
     public String checkDigit(int number) {
         return number <= 9 ? "0" + number : String.valueOf(number);
     }
 
     public void onClick(View view){
-        num_one = first_num.getText().toString();
-        num1 = Integer.parseInt(num_one);
-        num_two = second_num.getText().toString();
-        num2 = Integer.parseInt(num_two);
-        num_three = third_num.getText().toString();
-        num3 = Integer.parseInt(num_three);
-        num_four = fourth_num.getText().toString();
-        num4 = Integer.parseInt(num_four);
-        if ((num1 + num2 + num3 + num4) == code){
-            Intent intent = new Intent(this, EnterAndRegistration.class); //ИЗМЕНИТЬ ПЕРЕХОДЯЩИЙ ИНТЕНТ НА ТОТ, КОТОРЫЙ БУДЕТ СОЗДАН ЧУТЬ ПОЗЖЕ (59 СТРОКА)
+        if (CorVal == ResVal){
+            Intent intent = new Intent(this, Keyboard.class); //ИЗМЕНИТЬ ПЕРЕХОДЯЩИЙ ИНТЕНТ НА ТОТ, КОТОРЫЙ БУДЕТ СОЗДАН ЧУТЬ ПОЗЖЕ (59 СТРОКА)
             startActivity(intent);
         }
         else {
@@ -64,5 +152,7 @@ public class EnterCode extends AppCompatActivity {
             errorToast.show();
         }
     }
+
+
 }
 

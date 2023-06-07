@@ -11,7 +11,6 @@ public class EnterAndRegistration extends AppCompatActivity {
 
     Button next, yandex;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
