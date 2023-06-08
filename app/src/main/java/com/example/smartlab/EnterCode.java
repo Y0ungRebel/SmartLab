@@ -125,10 +125,15 @@ public class EnterCode extends AppCompatActivity {
                 {
                     FCode += fourth_num.getText().toString();
                     ResVal = Integer.parseInt(FCode);
-                    fourth_num.requestFocus();
                 }
                 if (CorVal != ResVal){
                     FCode = "";
+                    Toast errorToast = Toast.makeText(EnterCode.this, "Введен неправильный код!", Toast.LENGTH_SHORT);
+                    errorToast.show();
+                }
+                else if (CorVal == ResVal){
+                    Intent intent = new Intent(EnterCode.this, Keyboard.class);
+                    startActivity(intent);
                 }
             }
 
@@ -144,7 +149,7 @@ public class EnterCode extends AppCompatActivity {
 
     public void onClick(View view){
         if (CorVal == ResVal){
-            Intent intent = new Intent(this, Keyboard.class); //ИЗМЕНИТЬ ПЕРЕХОДЯЩИЙ ИНТЕНТ НА ТОТ, КОТОРЫЙ БУДЕТ СОЗДАН ЧУТЬ ПОЗЖЕ (59 СТРОКА)
+            Intent intent = new Intent(this, Keyboard.class);
             startActivity(intent);
         }
         else {

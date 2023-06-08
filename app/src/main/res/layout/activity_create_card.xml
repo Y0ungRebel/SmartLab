@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateCard">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="Создание карты пациента"
+        android:textColor="#000000"
+        android:textSize="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/skipPas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="780px"
+        android:layout_marginTop="75px"
+        android:clickable="true"
+        android:onClick="onSkip"
+        android:text="Пропустить"
+        android:textColor="#1A6FEE"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/infoCard1"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:layout_marginTop="25dp"
+        android:textColor="#7E7E9A"
+        android:layout_centerHorizontal="true"
+        android:textSize="14dp"
+        android:text="Без карты пациента вы не сможете заказать анализы."/>
+
+    <TextView
+        android:id="@+id/infoCard2"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/infoCard1"
+        android:layout_marginTop="15dp"
+        android:textColor="#7E7E9A"
+        android:layout_centerHorizontal="true"
+        android:textSize="14dp"
+        android:text="В картах пациентов будут храниться результаты анализов вас и ваших близких."/>
+
+    <ImageView
+        android:id="@+id/vector"
+        android:layout_width="20dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginLeft="340dp"
+        android:elevation="10dp"
+        app:srcCompat="@drawable/vector" />
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/infoCard2"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editName"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_email"
+            android:ems="10"
+            android:hint="Имя"
+            android:inputType="textEmailAddress"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editPatronymic"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_email"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Отчество"
+            android:inputType="textEmailAddress"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editSurname"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_email"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Фамилия"
+            android:inputType="textEmailAddress"
+            android:textSize="14dp" />
+
+        <EditText
+            android:id="@+id/editDate"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_email"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="Дата рождения"
+            android:inputType="date"
+            android:textSize="14dp" />
+
+        <Spinner
+            android:id="@+id/editGen"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:background="@drawable/edit_email"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:textSize="14dp" />
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_next_reg"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp"
+            android:onClick="onClick"
+            android:textAllCaps="false"
+            android:text="Создать"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
