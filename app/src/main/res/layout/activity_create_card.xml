@@ -51,15 +51,6 @@
         android:textSize="14dp"
         android:text="В картах пациентов будут храниться результаты анализов вас и ваших близких."/>
 
-    <ImageView
-        android:id="@+id/vector"
-        android:layout_width="20dp"
-        android:layout_height="15dp"
-        android:layout_marginTop="520dp"
-        android:layout_marginLeft="340dp"
-        android:elevation="10dp"
-        app:srcCompat="@drawable/vector" />
-
     <LinearLayout
         android:layout_width="350dp"
         android:layout_height="400dp"
@@ -75,7 +66,7 @@
             android:background="@drawable/edit_email"
             android:ems="10"
             android:hint="Имя"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textSize="14dp" />
 
         <EditText
@@ -86,7 +77,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Отчество"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textSize="14dp" />
 
         <EditText
@@ -97,7 +88,7 @@
             android:layout_marginTop="20dp"
             android:ems="10"
             android:hint="Фамилия"
-            android:inputType="textEmailAddress"
+            android:inputType="text"
             android:textSize="14dp" />
 
         <EditText
