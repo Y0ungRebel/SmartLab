@@ -20,8 +20,7 @@ import android.widget.Toast;
 public class EnterCode extends AppCompatActivity {
 
     EditText first_num, second_num, third_num, fourth_num;
-    int time, CorVal, ResVal,  c1, c2, c3, c4, num1, num2, num3, num4;
-    String num_one, num_two, num_three, num_four;
+    int time, CorVal, ResVal;
     String FCode="";
     TextView timer, timeInfo;
 
@@ -157,7 +156,5 @@ public class EnterCode extends AppCompatActivity {
             errorToast.show();
         }
     }
-
-
 }
 

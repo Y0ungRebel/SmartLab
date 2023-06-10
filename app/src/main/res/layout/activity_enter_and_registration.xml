@@ -65,9 +65,10 @@
         android:id="@+id/btn_next"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="20dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:background="@drawable/btn_next_reg"
+        android:enabled="false"
+        android:background="@drawable/btn_login"
         android:layout_below="@id/editEmail"
         android:textColor="#FFFFFF"
         android:textSize="14dp"
@@ -96,7 +97,6 @@
         android:layout_marginTop="15dp"
         android:textColor="#000000"
         android:textSize="14dp"
-        android:onClick="onClick"
         android:textAllCaps="false"
         android:text="Войти с Яндекс" />
 </RelativeLayout>
