@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".EnterCode">
 
+    <ImageButton
+        android:id="@+id/button_back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@color/clear_white"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:onClick="goBack"
+        app:srcCompat="@drawable/btn_back"
+        />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

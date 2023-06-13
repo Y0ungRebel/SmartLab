@@ -97,6 +97,9 @@
             android:layout_height="50dp"
             android:background="@drawable/edit_email"
             android:layout_marginTop="20dp"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
             android:ems="10"
             android:hint="Дата рождения"
             android:inputType="date"
@@ -106,9 +109,11 @@
             android:id="@+id/editGen"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/edit_email"
+            android:background="@drawable/spinner_focus"
             android:layout_marginTop="20dp"
             android:ems="10"
+            android:entries="@array/gender"
+            android:spinnerMode="dropdown"
             android:inputType="textEmailAddress"
             android:textSize="14dp" />
 

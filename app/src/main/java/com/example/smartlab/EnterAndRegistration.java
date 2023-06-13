@@ -53,7 +53,13 @@ public class EnterAndRegistration extends AppCompatActivity {
 
     public void onClick(View view){
         emailValue = editEmail.getText().toString();
-        emailPattern = "[a-zA-Z0-9._]+@[a-z]+\\.+[a-z]+";
+        emailPattern = "[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" +
+                "\\@" +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
+                "(" +
+                "\\." +
+                "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25}" +
+                ")+";
 
         preferences = getSharedPreferences("UserInfo", 0);
 

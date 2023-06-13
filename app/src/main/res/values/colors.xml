@@ -10,4 +10,17 @@
     <color name="clear_white">#FDFCFC</color>
     <color name="new_white">#F5F5F9</color>
     <color name="blue">#1A6FEE</color>
+    <color name="colorPrimaryDark">#FFFFFFFF</color>
+    <color name="colorOnboardPrimary">#57A9FF</color>
+    <color name="colorTextHeading">#00B712</color>
+    <color name="colorTextAdditional">#939396</color>
+    <color name="buttonLogInInactive">#C9D4FB</color>
+    <color name="buttonLogInActive">#1A6FEE</color>
+
+    <color name="editTextLogInStroke">#EBEBEB</color>
+    <color name="editTextLogIn">#F5F5F9</color>
+    <color name="editTextTextColor">#00000080</color>
+
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#939396</color>
 </resources>

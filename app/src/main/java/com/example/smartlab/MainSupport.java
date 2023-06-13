@@ -19,21 +19,21 @@ public class MainSupport extends AppCompatActivity {
 
     public void onAnalysis(View view){
         Intent intent = new Intent(this, MainAnalysis.class);
-        startActivity(intent);
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     public void onResults(View view){
         Intent intent = new Intent(this, MainResult.class);
-        startActivity(intent);
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     public void onSupport(View view){
         Intent intent = new Intent(this, MainSupport.class);
-        startActivity(intent);
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 
     public void onProfile(View view){
         Intent intent = new Intent(this, MainProfile.class);
-        startActivity(intent);
+        startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION));
     }
 }
