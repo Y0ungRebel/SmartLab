@@ -246,7 +246,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener{
                 this.finish();
             }
             else{
-                startActivity(new Intent(this, MainAnalysis.class));
+                startActivity(new Intent(this, Menu.class));
                 this.finish();
             }
         }

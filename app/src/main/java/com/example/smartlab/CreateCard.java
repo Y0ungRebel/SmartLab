@@ -154,7 +154,7 @@ public class CreateCard extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putBoolean(APP_PREFERENCES_CARD_FINISH, true);
                 editor.apply();
-                Intent i = new Intent(CreateCard.this, MainAnalysis.class);
+                Intent i = new Intent(CreateCard.this, Menu.class);
                 startActivity(i);
                 finishAffinity();
             }
