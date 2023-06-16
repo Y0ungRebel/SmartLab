@@ -47,8 +47,8 @@ public class FragmentAnalyzes extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-
-        //kdlsdk = view.findViewById(R.id.)
+        //use the elements in this method
+        //element = view.findViewById(R.id.)
     }
     public void onClick(View view){
 
