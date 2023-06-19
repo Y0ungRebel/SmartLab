@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bottom_sheet_background">
+
+    <TextView
+        android:id="@+id/bs_name"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="20dp"
+        android:text="Полное название анализа" />
+
+    <TextView
+        android:id="@+id/bs_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_name"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:text="Описание" />
+
+    <TextView
+        android:id="@+id/bs_description_text"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_description"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:text="Описание анализа" />
+
+    <TextView
+        android:id="@+id/bs_preparation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_description_text"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:text="Подготовка" />
+
+    <TextView
+        android:id="@+id/bs_preparation_text"
+        android:layout_width="355dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_preparation"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:text="Описание подготовки" />
+
+    <TextView
+        android:id="@+id/bs_results"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_preparation_text"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:text="Результаты через:" />
+
+    <TextView
+        android:id="@+id/bs_results_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bs_results"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:textSize="15dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="Описание срока" />
+
+    <TextView
+        android:id="@+id/bs_bio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/bs_results"
+        android:layout_below="@+id/bs_preparation_text"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="70dp"
+        android:textSize="15dp"
+        android:text="Биоматериал:" />
+
+    <TextView
+        android:id="@+id/bs_bio_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bs_bio"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@id/bs_results"
+        android:text="Описание биоматериала"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15dp" />
+
+    <Button
+        android:id="@+id/bs_add"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/bs_bio_text"
+        android:layout_marginBottom="20dp"
+        android:textAllCaps="false"
+        android:background="@drawable/button_add_item"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        android:text="Добавить за 600 ₽" />
+
+    <ImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/bs_name"
+        app:srcCompat="@drawable/close_dialog"
+        android:background="@drawable/press_btn"/>
+</RelativeLayout>

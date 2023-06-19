@@ -29,10 +29,11 @@ import java.util.List;
 public class FragmentAnalyzes extends Fragment {
 
     //Button element;
-    JSONArray array_banner, array_analyze;
-    private RecyclerView recyclerView_banner, recyclerView_analyze;
+    JSONArray array_banner, array_analyze, array_category;
+    private RecyclerView recyclerView_banner, recyclerView_analyze, recyclerView_category;
     private List<Object> viewItems_banner = new ArrayList<>();
     private List<Object> viewItems_analyze = new ArrayList<>();
+    private List<Object> viewItems_category = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,10 +41,14 @@ public class FragmentAnalyzes extends Fragment {
         View v = inflater.inflate(R.layout.fragment_analyzes, container, false);
         new GetTask().execute(new JSONObject());
         new GetTaskAnalyze().execute(new JSONObject());
+        new GetTaskCategory().execute(new JSONObject());
 
         recyclerView_banner=(RecyclerView) v.findViewById(R.id.bannersRecyclerView);
         recyclerView_analyze=(RecyclerView) v.findViewById(R.id.analyzesRecyclerView);
+        recyclerView_category=(RecyclerView) v.findViewById(R.id.categoriesRecyclerView);
 
+        CategoryAdapter adapter_category = new CategoryAdapter(getContext(), viewItems_category);
+        recyclerView_category.setAdapter(adapter_category);
         AnalyzeAdapter adapter_analyze = new AnalyzeAdapter(getContext(), viewItems_analyze);
         recyclerView_analyze.setAdapter(adapter_analyze);
         BannerAdapter adapter_banner = new BannerAdapter(getContext(), viewItems_banner);
@@ -167,6 +172,53 @@ public class FragmentAnalyzes extends Fragment {
                 AnalyzeModel analyzeModel = new AnalyzeModel(id, name, description, price, category, time_result, preparation, bio);
                 viewItems_analyze.add(analyzeModel);}
         } catch (JSONException e) {
-        }}
+        }
+    }
 
+    private class GetTaskCategory extends AsyncTask<JSONObject, Void, String> {
+        @Override
+        protected String doInBackground(JSONObject... jsonObjects) {
+            try {
+                InputStream stream = null;
+// Для буферизации текста из потока
+                BufferedReader reader=null;
+                HttpURLConnection connection = null;
+                try {
+// Присваиваем путь
+                    URL url_analyze = new URL("http://10.0.2.2:8000/api/catalog/");
+                    connection =(HttpURLConnection)url_analyze.openConnection();
+// Выбираем метод GET для запроса
+                    connection.setRequestMethod("GET");
+                    connection.setReadTimeout(10000);
+                    connection.connect();
+// Полученный результат разбиваем с помощью байтовых потоков
+                    stream = connection.getInputStream();
+                    reader= new BufferedReader(new InputStreamReader(stream));
+                    StringBuilder buf=new StringBuilder();
+                    String line;
+                    while ((line=reader.readLine()) != null) {
+                        buf.append(line).append("\n");
+                    }
+                    JSONObject root = new JSONObject(buf.toString());
+                    array_category= root.getJSONArray("results");
+                    addItemsFromJSON_category();
+                    return(buf.toString());
+                } catch (Exception e) {e.getMessage();}
+            } catch (Exception e) {e.printStackTrace();}
+
+            return null;
+        }
+    }
+
+    private void addItemsFromJSON_category() {
+        try {
+// Заполняем Модель спаршенными данными
+            for (int i=0; i<array_category.length(); ++i) {
+                JSONObject itemObj = array_category.getJSONObject(i);
+                String category = itemObj.getString("category");
+                CategoryModel categoryModel = new CategoryModel(category);
+                viewItems_category.add(categoryModel);}
+        } catch (JSONException e) {
+        }}
 }
+

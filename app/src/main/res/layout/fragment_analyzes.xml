@@ -54,7 +54,7 @@
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecyclerView"
+        android:id="@+id/categoriesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvCatalog"
@@ -69,10 +69,55 @@
         android:id="@+id/analyzesRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/categoryRecyclerView"
-        android:layout_marginTop="8dp"
+        android:layout_below="@+id/categoriesRecyclerView"
         android:scrollbars="none"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/card_analyze" />
+
+    <RelativeLayout
+        android:id="@+id/cart_field"
+        android:visibility="invisible"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <View
+            android:id="@+id/cart_view"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:backgroundTint="@color/white"
+            android:background="@color/black" />
+
+        <Button
+            android:id="@+id/btn_cart"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/button_add_item"
+            android:drawableStart="@drawable/cart"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="220dp"
+            android:text="В корзину"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/cart_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/btn_cart"
+            android:layout_alignTop="@id/btn_cart"
+            android:layout_alignRight="@id/btn_cart"
+            android:layout_marginRight="10dp"
+            android:elevation="10dp"
+            android:textAllCaps="false"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:text="price" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

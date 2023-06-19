@@ -24,4 +24,7 @@
 
     <color name="colorTextPrimary">#212121</color>
     <color name="colorTextSecondary">#939396</color>
+
+    <color name="gray">#7E7E9A</color>
+
 </resources>
