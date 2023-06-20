@@ -42,26 +42,27 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         CategoryAdapter.ItemViewHolder _holder = (CategoryAdapter.ItemViewHolder) holder;
         CategoryModel catalog = (CategoryModel) listRecyclerItem.get(position);
         _holder.category.setText(catalog.getCategory());
+        _holder.category.setOnClickListener(new View.OnClickListener() {
+            int check = 1;
+            @Override
+            public void onClick(View v) {
+                if (check == 1){
+                    check = 0;
+                    _holder.category.setBackgroundResource(R.drawable.btn_category_pressed);
+                    _holder.category.setTextColor(ContextCompat.getColor(context, R.color.white));
+                }
+                else {
+                    check = 1;
+                    _holder.category.setBackgroundResource(R.drawable.btn_category_not_pressed);
+                    _holder.category.setTextColor(ContextCompat.getColor(context, R.color.gray));
+                }
+            }
+        });
 // Пример реализации setOnClickListener для этого представления
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                _holder.category.setOnClickListener(new View.OnClickListener() {
-                    int check = 1;
-                    @Override
-                    public void onClick(View v) {
-                        if (check == 1){
-                            check = 0;
-                            _holder.category.setBackgroundResource(R.drawable.btn_category_pressed);
-                            _holder.category.setTextColor(ContextCompat.getColor(context, R.color.white));
-                        }
-                        else {
-                            check = 1;
-                            _holder.category.setBackgroundResource(R.drawable.btn_category_not_pressed);
-                            _holder.category.setTextColor(ContextCompat.getColor(context, R.color.gray));
-                        }
-                    }
-                });
+
             }});
     }
 

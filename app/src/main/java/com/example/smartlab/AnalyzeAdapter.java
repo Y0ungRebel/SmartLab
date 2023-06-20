@@ -12,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
@@ -22,10 +24,18 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
     private final Context context;
     private final List<Object> listRecyclerItem;
+    private final RelativeLayout cartField;
 
-    public AnalyzeAdapter(Context context, List<Object> listRecyclerItem) {
+/*    public AnalyzeAdapter(Context context, List<Object> listRecyclerItem) {
         this.context = context;
-        this.listRecyclerItem = listRecyclerItem;}
+        this.listRecyclerItem = listRecyclerItem;}*/
+
+    public AnalyzeAdapter(Context context, List<Object> listRecyclerItem, RelativeLayout cartField) {
+        this.context = context;
+        this.listRecyclerItem = listRecyclerItem;
+        this.cartField = cartField;
+    }
+
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         // Присваиваем поля для заполнения элемента RecyclerView
         TextView id, name, description, price, category, time_result, preparation, bio;
@@ -52,18 +62,38 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         _holder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RelativeLayout cartField = new RelativeLayout(context);
-                cartField.setVisibility(View.VISIBLE);
-                View cartView = cartField.findViewById(R.id.cart_view);
+                //listener.onItemClick(v, position);
+                //RelativeLayout cartField = new RelativeLayout(context);
+                //View cartView = cartField.findViewById(R.id.cart_view);
                 Button btnCart = cartField.findViewById(R.id.btn_cart);
                 TextView cartPrice = cartField.findViewById(R.id.cart_price);
+
+                if (_holder.btn_add.getText().equals("Добавить")){
+                    cartField.setVisibility(View.VISIBLE);
+                    _holder.btn_add.setBackgroundResource(R.drawable.btn_delete);
+                    _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.buttonLogInActive));
+                    _holder.btn_add.setText("Убрать");
+                    cartPrice.setText(catalog.getPrice() + " ₽");
+                    btnCart.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                        }
+                    });
+                }
+                else if(_holder.btn_add.getText().equals("Убрать")){
+                    _holder.btn_add.setBackgroundResource(R.drawable.button_add_item);
+                    _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.white));
+                    _holder.btn_add.setText("Добавить");
+                    cartPrice.setText("");
+                    cartField.setVisibility(View.INVISIBLE);
+                }
             }
         });
 // Пример реализации setOnClickListener для этого представления
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(context, R.style.BottomSheetDialogTheme);
                 bottomSheetDialog.setContentView(R.layout.layout_bottom_sheet);
                 TextView name = bottomSheetDialog.findViewById(R.id.bs_name);
@@ -87,12 +117,11 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 close.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        bottomSheetDialog.setCanceledOnTouchOutside(true);
+                        //bottomSheetDialog.setCanceledOnTouchOutside(true);
+                        bottomSheetDialog.dismiss();
                     }
                 });
-
             }});
-
     }
 
     @Override

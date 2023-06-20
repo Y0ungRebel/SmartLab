@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,6 +36,8 @@ public class FragmentAnalyzes extends Fragment {
     private List<Object> viewItems_analyze = new ArrayList<>();
     private List<Object> viewItems_category = new ArrayList<>();
 
+    RelativeLayout cartField;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -46,14 +49,23 @@ public class FragmentAnalyzes extends Fragment {
         recyclerView_banner=(RecyclerView) v.findViewById(R.id.bannersRecyclerView);
         recyclerView_analyze=(RecyclerView) v.findViewById(R.id.analyzesRecyclerView);
         recyclerView_category=(RecyclerView) v.findViewById(R.id.categoriesRecyclerView);
+        cartField=(RelativeLayout) v.findViewById(R.id.cart_field);
 
         CategoryAdapter adapter_category = new CategoryAdapter(getContext(), viewItems_category);
         recyclerView_category.setAdapter(adapter_category);
-        AnalyzeAdapter adapter_analyze = new AnalyzeAdapter(getContext(), viewItems_analyze);
+        AnalyzeAdapter adapter_analyze = new AnalyzeAdapter(getContext(), viewItems_analyze, cartField);  //new CatalogItemListener()
+        //{
+//            @Override
+//            public void onItemClick(View v, int position) {
+//                RelativeLayout cartField = new RelativeLayout(getContext());
+//                cartField.setVisibility(View.VISIBLE);
+//                String s = "1";
+//            }
+        //});
+        //AnalyzeAdapter adapter_analyze = new AnalyzeAdapter(getContext(), viewItems_analyze);
         recyclerView_analyze.setAdapter(adapter_analyze);
         BannerAdapter adapter_banner = new BannerAdapter(getContext(), viewItems_banner);
         recyclerView_banner.setAdapter(adapter_banner);
-
 
         return v;
 
@@ -63,6 +75,7 @@ public class FragmentAnalyzes extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //use the elements in this method
         //element = view.findViewById(R.id.)
+
     }
     public void onClick(View view){
 
@@ -185,7 +198,7 @@ public class FragmentAnalyzes extends Fragment {
                 HttpURLConnection connection = null;
                 try {
 // Присваиваем путь
-                    URL url_analyze = new URL("http://10.0.2.2:8000/api/catalog/");
+                    URL url_analyze = new URL("http://10.0.2.2:8000/api/category/");
                     connection =(HttpURLConnection)url_analyze.openConnection();
 // Выбираем метод GET для запроса
                     connection.setRequestMethod("GET");
@@ -215,7 +228,7 @@ public class FragmentAnalyzes extends Fragment {
 // Заполняем Модель спаршенными данными
             for (int i=0; i<array_category.length(); ++i) {
                 JSONObject itemObj = array_category.getJSONObject(i);
-                String category = itemObj.getString("category");
+                String category = itemObj.getString("name");
                 CategoryModel categoryModel = new CategoryModel(category);
                 viewItems_category.add(categoryModel);}
         } catch (JSONException e) {
