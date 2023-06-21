@@ -1,7 +1,10 @@
 package com.example.smartlab;
 
+
+
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +28,8 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     private final Context context;
     private final List<Object> listRecyclerItem;
     private final RelativeLayout cartField;
+
+    Double sum_price_double = 0.0;
 
 /*    public AnalyzeAdapter(Context context, List<Object> listRecyclerItem) {
         this.context = context;
@@ -60,33 +65,42 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         _holder.time_result.setText(catalog.getTime_result());
         _holder.price.setText(catalog.getPrice());
         _holder.btn_add.setOnClickListener(new View.OnClickListener() {
+            boolean flag = true;
             @Override
             public void onClick(View v) {
-                //listener.onItemClick(v, position);
-                //RelativeLayout cartField = new RelativeLayout(context);
                 //View cartView = cartField.findViewById(R.id.cart_view);
                 Button btnCart = cartField.findViewById(R.id.btn_cart);
                 TextView cartPrice = cartField.findViewById(R.id.cart_price);
 
-                if (_holder.btn_add.getText().equals("Добавить")){
+                if (flag){
+                    flag = false;
                     cartField.setVisibility(View.VISIBLE);
                     _holder.btn_add.setBackgroundResource(R.drawable.btn_delete);
                     _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.buttonLogInActive));
                     _holder.btn_add.setText("Убрать");
-                    cartPrice.setText(catalog.getPrice() + " ₽");
+                    sum_price_double += Double.parseDouble(catalog.getPrice());
+                    cartPrice.setText(sum_price_double.toString() + " ₽");
                     btnCart.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
+                            Intent intent = new Intent(context, Cart.class);
+                            String getPrice = cartPrice.getText().toString();
+                            intent.putExtra("finalPrice", getPrice);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                            context.startActivity(intent);
                         }
                     });
                 }
-                else if(_holder.btn_add.getText().equals("Убрать")){
+                else {
+                    flag = true;
                     _holder.btn_add.setBackgroundResource(R.drawable.button_add_item);
                     _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.white));
                     _holder.btn_add.setText("Добавить");
-                    cartPrice.setText("");
-                    cartField.setVisibility(View.INVISIBLE);
+                    sum_price_double -= Double.parseDouble(catalog.getPrice());
+                    cartPrice.setText(sum_price_double.toString() + " ₽");
+                    if (sum_price_double == 0){
+                        cartField.setVisibility(View.INVISIBLE);
+                    }
                 }
             }
         });
@@ -103,6 +117,7 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 TextView bio = bottomSheetDialog.findViewById(R.id.bs_bio_text);
                 Button price = bottomSheetDialog.findViewById(R.id.bs_add);
                 ImageButton close = bottomSheetDialog.findViewById(R.id.btn_close);
+                TextView cartPrice = cartField.findViewById(R.id.cart_price);
 
                 name.setText(catalog.getName());
                 description.setText(catalog.getDescription());
@@ -110,7 +125,31 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 time_result.setText(catalog.getTime_result());
                 bio.setText(catalog.getBio());
                 price.setText("Добавить за " + catalog.getPrice() + " ₽");
-                //Toast.makeText(context, catalog.getId(), Toast.LENGTH_SHORT).show();
+                price.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        if (_holder.btn_add.getText().equals("Добавить")){
+                            cartField.setVisibility(View.VISIBLE);
+                            _holder.btn_add.setBackgroundResource(R.drawable.btn_delete);
+                            _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.buttonLogInActive));
+                            _holder.btn_add.setText("Убрать");
+                            sum_price_double += Double.parseDouble(catalog.getPrice());
+                            cartPrice.setText(sum_price_double.toString() + " ₽");
+                            bottomSheetDialog.dismiss();
+                        }
+                        else if (_holder.btn_add.getText().equals("Убрать")){
+                            _holder.btn_add.setBackgroundResource(R.drawable.button_add_item);
+                            _holder.btn_add.setTextColor(ContextCompat.getColor(context, R.color.white));
+                            _holder.btn_add.setText("Добавить");
+                            sum_price_double -= Double.parseDouble(catalog.getPrice());
+                            cartPrice.setText(sum_price_double.toString() + " ₽");
+                            if (sum_price_double == 0){
+                                cartField.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                    }
+                });
 
                 bottomSheetDialog.show();
 
@@ -123,8 +162,9 @@ public class AnalyzeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
                 });
             }});
     }
-
     @Override
     public int getItemCount() {
 // Получает всёё количесво элементов RecyclerView
         return listRecyclerItem.size();}}
+
+

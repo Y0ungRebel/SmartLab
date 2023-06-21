@@ -1,5 +1,6 @@
 package com.example.smartlab;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
@@ -30,6 +31,7 @@ import java.util.List;
 public class FragmentAnalyzes extends Fragment {
 
     //Button element;
+    Button btn_cart;
     JSONArray array_banner, array_analyze, array_category;
     private RecyclerView recyclerView_banner, recyclerView_analyze, recyclerView_category;
     private List<Object> viewItems_banner = new ArrayList<>();
@@ -75,6 +77,7 @@ public class FragmentAnalyzes extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         //use the elements in this method
         //element = view.findViewById(R.id.)
+
 
     }
     public void onClick(View view){
