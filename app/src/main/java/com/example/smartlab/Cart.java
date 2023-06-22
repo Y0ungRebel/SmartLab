@@ -13,7 +13,7 @@ public class Cart extends AppCompatActivity {
 
 TextView total;
 Button order;
-ImageButton back;
+ImageButton back, plus_first, minus_first, plus_second, minus_second;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ ImageButton back;
         String endPrice = getIntent().getExtras().getString("finalPrice");
         total = findViewById(R.id.total_price);
         total.setText(endPrice);
+
         back = findViewById(R.id.button_back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,12 +31,13 @@ ImageButton back;
                 onBackPressed();
             }
         });
+
         order = findViewById(R.id.button_making_order);
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(this, Order.class);
-                //startActivity(intent);
+                Intent intent = new Intent(Cart.this, Order.class);
+                startActivity(intent);
             }
         });
     }

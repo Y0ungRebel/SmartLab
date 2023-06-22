@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Order">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarThumbVertical="@color/clear_white"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/button_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/frame_indicator_back"
+                android:paddingRight="2dp"
+                android:scaleType="center"
+                app:srcCompat="@drawable/indicator_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Оформление заказа"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/click_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Адрес*"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editAddress"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_email"
+                android:hint="Введите ваш адрес"
+                android:clickable="true"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorTextPrimary"
+                android:textColorHint="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Дата и время*"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editDateAndTime"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_email"
+                android:hint="Выберите дату и время"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Кто будет сдавать анализы?*"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame_patient">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp">
+
+                    <Spinner
+                        android:id="@+id/patient"
+                        android:layout_width="290dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="top"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/spinner_unfocus"
+                        android:ems="10"
+                        android:entries="@array/patients"
+                        android:spinnerMode="dropdown"
+                        android:textSize="14dp" />
+
+                    <ImageView
+                        android:id="@+id/imageView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="27dp"
+                        app:srcCompat="@drawable/male" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="320dp"
+                        android:layout_marginTop="27dp"
+                        app:srcCompat="@drawable/close_icon" />
+
+                </FrameLayout>
+
+                <CheckBox
+                    android:id="@+id/checkBox_first"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:buttonTint="@color/buttonLogInActive"
+                    android:layout_marginTop="70dp"
+                    android:text="ПЦР-тест на определение РНК коронавируса стандартный" />
+
+                <TextView
+                    android:id="@+id/analyze_first"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1800 ₽"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_toRightOf="@id/checkBox_first"
+                    android:layout_marginTop="78dp"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/analyze_second"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1070 ₽"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_toRightOf="@id/checkBox_first"
+                    android:layout_marginTop="115dp"
+                    android:textSize="15sp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_second"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/buttonLogInActive"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="110dp"
+                    android:text="Гликированный гемоглобин (HbA1C, Glycated Hemoglobin)" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/button_add_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_delete"
+                android:text="Добавить еще пациента"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_marginTop="15dp"
+                android:paddingHorizontal="16dp"
+                android:paddingVertical="10dp"
+                android:textSize="14sp"
+                android:textColor="@color/buttonLogInActive"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Телефон*"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editPhone"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_email"
+                android:hint="+7 (999) 999-99-99"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="Комментарий"
+                android:textColor="@color/colorTextSecondary"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/editComment"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/edit_email"
+                android:hint="Можете оставить свои пожелания"
+                android:gravity="top"
+                android:textColor="@color/colorTextPrimary"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="620px"
+                android:layout_marginTop="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Оплата Apple Pay"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="335dp"
+                    app:srcCompat="@drawable/next_step" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:text="Промокод"
+                    android:textColor="@color/colorTextSecondary"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="335dp"
+                    app:srcCompat="@drawable/next_step" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="95dp"
+                    android:text="2 анализа"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="95dp"
+                    android:layout_alignParentRight="true"
+                    android:text="2870 ₽"
+                    android:textColor="@color/colorTextPrimary"
+                    android:textStyle="bold"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/btn_make_order"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="135dp"
+                    android:enabled="false"
+                    android:background="@drawable/btn_next_disabled"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textAllCaps="false"
+                    android:text="Заказать"/>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>

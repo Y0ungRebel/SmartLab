@@ -13,4 +13,9 @@
         <item>Женский</item>
     </string-array>
 
+    <string-array name="patients">
+        <item>Иванов Иван</item>
+        <item>Иванова Людмила</item>
+    </string-array>
+
 </resources>

@@ -109,7 +109,7 @@
             android:id="@+id/editGen"
             android:layout_width="350dp"
             android:layout_height="50dp"
-            android:background="@drawable/spinner_focus"
+            android:background="@drawable/spinner_unfocus"
             android:layout_marginTop="20dp"
             android:ems="10"
             android:entries="@array/gender"

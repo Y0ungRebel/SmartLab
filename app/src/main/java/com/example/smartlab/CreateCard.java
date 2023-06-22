@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +32,8 @@ public class CreateCard extends AppCompatActivity {
 
     Button button_create_card;
 
+    TextView skip;
+
     int year_x, month_x, day_x;
     static final int DIALOG_DATE = 1;
 
@@ -47,6 +50,7 @@ public class CreateCard extends AppCompatActivity {
         secondName = findViewById(R.id.editSurname);
         patronymic = findViewById(R.id.editPatronymic);
         dateBirthDay = findViewById(R.id.editDate);
+        skip = findViewById(R.id.skipPas);
 
         button_create_card = findViewById(R.id.btn_next);
 
@@ -154,6 +158,15 @@ public class CreateCard extends AppCompatActivity {
                 SharedPreferences.Editor editor = sp.edit();
                 editor.putBoolean(APP_PREFERENCES_CARD_FINISH, true);
                 editor.apply();
+                Intent i = new Intent(CreateCard.this, Menu.class);
+                startActivity(i);
+                finishAffinity();
+            }
+        });
+
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 Intent i = new Intent(CreateCard.this, Menu.class);
                 startActivity(i);
                 finishAffinity();
