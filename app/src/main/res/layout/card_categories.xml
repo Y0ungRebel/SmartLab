@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="10dp"
     android:layout_marginLeft="15dp"
-    android:layout_marginRight="20dp"
     android:layout_width="wrap_content"
     android:background="@color/clear_white"
     android:layout_height="wrap_content">
@@ -11,6 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/categoriesCardView"
         android:background="@color/clear_white"
+        app:cardElevation="-10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -22,9 +22,9 @@
             android:text="category"
             android:textAllCaps="false"
             android:textColor="@color/gray"
-            android:layout_marginHorizontal="5dp"
+            android:layout_marginHorizontal="2dp"
             android:paddingHorizontal="20dp"
-            android:paddingVertical="14dp"
+            android:paddingVertical="5dp"
             style="?android:attr/borderlessButtonStyle"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"

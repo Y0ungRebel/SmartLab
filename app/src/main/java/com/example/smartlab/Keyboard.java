@@ -237,7 +237,7 @@ public class Keyboard extends AppCompatActivity implements View.OnClickListener{
     private void matchPassCode() {
         if (getPassCode().equals(passCode)){
 
-            Toast errorToast = Toast.makeText(this, "Пароль введен правильно!", Toast.LENGTH_SHORT);
+            Toast errorToast = Toast.makeText(this, "Добро пожаловать!", Toast.LENGTH_SHORT);
             errorToast.show();
 
             SharedPreferences sp = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);

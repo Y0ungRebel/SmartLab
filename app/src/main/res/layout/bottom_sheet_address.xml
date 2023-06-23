@@ -22,19 +22,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/bs_name"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="25dp"
         android:textSize="15dp"
         android:text="Ваш адрес" />
 
     <EditText
         android:id="@+id/editStreet"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_address"
         android:hint="Улица"
+        android:paddingLeft="15dp"
+        android:inputType="text"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -50,13 +52,16 @@
 
     <EditText
         android:id="@+id/editLongitude"
-        android:layout_width="140dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_longitude"
         android:hint="Долгота"
+        android:paddingLeft="15dp"
+        android:inputType="number|phone"
+        android:maxLength="3"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -66,19 +71,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editStreet"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="180dp"
+        android:layout_marginLeft="165dp"
         android:textSize="15dp"
         android:text="Широта" />
 
     <EditText
         android:id="@+id/editWidth"
-        android:layout_width="140dp"
+        android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="175dp"
+        android:layout_marginLeft="163dp"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_longitude"
         android:hint="Широта"
+        android:paddingLeft="15dp"
+        android:inputType="number|phone"
+        android:maxLength="3"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -88,19 +96,22 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editStreet"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="330dp"
+        android:layout_marginLeft="305dp"
         android:textSize="15dp"
         android:text="Высота" />
 
     <EditText
         android:id="@+id/editHeight"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="330dp"
+        android:layout_marginLeft="305dp"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_longitude"
         android:hint="Высота"
+        android:paddingLeft="10dp"
+        android:inputType="number|phone"
+        android:maxLength="3"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -124,6 +135,9 @@
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_flat"
         android:hint="Квартира"
+        android:paddingLeft="15dp"
+        android:inputType="number|phone"
+        android:maxLength="3"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -133,7 +147,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editWidth"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="146dp"
         android:textSize="15dp"
         android:text="Подъезд" />
 
@@ -142,10 +156,13 @@
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="145dp"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_door"
-        android:hint="Широта"
+        android:hint="Подъезд"
+        android:paddingLeft="15dp"
+        android:inputType="number|phone"
+        android:maxLength="2"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -155,7 +172,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editWidth"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="280dp"
+        android:layout_marginLeft="270dp"
         android:textSize="15dp"
         android:text="Этаж" />
 
@@ -164,10 +181,13 @@
         android:layout_width="110dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
-        android:layout_marginLeft="280dp"
+        android:layout_marginLeft="270dp"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_door"
         android:hint="Этаж"
+        android:paddingLeft="15dp"
+        android:inputType="number|phone"
+        android:maxLength="3"
         android:textColor="@color/colorTextPrimary"
         android:textSize="15dp" />
 
@@ -180,20 +200,23 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editFlat"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="25dp"
         android:textSize="15dp"
         android:text="Домофон" />
 
     <EditText
         android:id="@+id/editHouse"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/edit_email"
         android:layout_below="@+id/bs_house"
         android:hint="Введите Ваш код для домофона"
+        android:paddingLeft="15dp"
         android:textColor="@color/colorTextPrimary"
+        android:inputType="text"
+        android:maxLength="10"
         android:textSize="15dp" />
 
     <TextView
@@ -202,8 +225,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/editHouse"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="20dp"
-        android:textSize="15dp"
+        android:layout_marginLeft="25dp"
+        android:textSize="17dp"
         android:textColor="@color/colorTextPrimary"
         android:textStyle="bold"
         android:text="Сохранить этот адрес?" />
@@ -213,6 +236,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/editHouse"
+            android:trackTint="@color/buttonLogInActive"
+            android:thumbTint="@color/clear_white"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="350dp"
             />
@@ -226,8 +251,10 @@
         android:background="@drawable/edit_email"
         android:layout_below="@+id/createPlace"
         android:hint="Название: например дом, работа"
+        android:paddingLeft="15dp"
         android:textColor="@color/colorTextPrimary"
-        android:visibility="visible"
+        android:inputType="text"
+        android:visibility="gone"
         android:textSize="15dp" />
 
     <ImageButton
@@ -240,11 +267,11 @@
 
     <Button
         android:id="@+id/btn_save_address"
-        android:layout_width="370dp"
+        android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/editPlace"
-        android:background="@drawable/btn_next_disabled"
+        android:background="@drawable/btn_next_reg"
         android:layout_centerHorizontal="true"
         android:textColor="#FFFFFF"
         android:textSize="18sp"

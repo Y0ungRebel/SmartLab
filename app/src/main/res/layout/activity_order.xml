@@ -23,7 +23,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/button_back"
+                android:id="@+id/button_back_cart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/frame_indicator_back"
@@ -60,6 +60,7 @@
                 android:inputType="textPersonName"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/black"
+                android:paddingLeft="15dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -79,6 +80,7 @@
                 android:hint="Выберите дату и время"
                 android:inputType="textPersonName"
                 android:textColor="@color/colorTextPrimary"
+                android:paddingLeft="15dp"
                 android:textSize="15sp" />
 
             <TextView
@@ -106,6 +108,7 @@
                         android:layout_gravity="top"
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="15dp"
+                        android:paddingLeft="30dp"
                         android:background="@drawable/spinner_unfocus"
                         android:ems="10"
                         android:entries="@array/patients"
@@ -116,7 +119,7 @@
                         android:id="@+id/imageView3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
+                        android:layout_marginLeft="30dp"
                         android:layout_marginTop="27dp"
                         app:srcCompat="@drawable/male" />
 
@@ -176,15 +179,13 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_delete"
                 android:text="Добавить еще пациента"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_marginTop="15dp"
                 android:paddingHorizontal="16dp"
                 android:paddingVertical="10dp"
                 android:textSize="14sp"
                 android:textColor="@color/buttonLogInActive"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:textAllCaps="false" />
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -202,15 +203,25 @@
                 android:background="@drawable/edit_email"
                 android:hint="+7 (999) 999-99-99"
                 android:textColor="@color/colorTextPrimary"
+                android:inputType="phone"
+                android:paddingLeft="15dp"
                 android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp"
                 android:text="Комментарий"
                 android:textColor="@color/colorTextSecondary"
                 android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="330dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/microphone"/>
 
             <EditText
                 android:id="@+id/editComment"
@@ -219,8 +230,11 @@
                 android:layout_marginTop="4dp"
                 android:background="@drawable/edit_email"
                 android:hint="Можете оставить свои пожелания"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
                 android:gravity="top"
                 android:textColor="@color/colorTextPrimary"
+                android:inputType="text"
                 android:textSize="14sp" />
 
             <RelativeLayout
@@ -279,12 +293,11 @@
                     android:textSize="18sp" />
 
                 <Button
-                    android:id="@+id/btn_make_order"
+                    android:id="@+id/btn_pay"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="135dp"
-                    android:enabled="false"
-                    android:background="@drawable/btn_next_disabled"
+                    android:background="@drawable/btn_next_reg"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp"
                     android:textAllCaps="false"
@@ -292,11 +305,8 @@
 
             </RelativeLayout>
 
-
         </LinearLayout>
 
-
     </ScrollView>
-
 
 </LinearLayout>

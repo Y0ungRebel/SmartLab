@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".Process">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Оплата"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="270dp"
+        android:indeterminate="true"
+        android:visibility="visible"
+        android:indeterminateTint="@color/buttonLogInActive"/>
+
+    <TextView
+        android:id="@+id/textView_info1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Связываемся с банком..."
+        android:textColor="@color/colorTextSecondary"
+        android:layout_below="@id/progressBar1"
+        android:layout_centerHorizontal="true"
+        android:visibility="visible"
+        android:textSize="17dp"
+        android:layout_marginTop="18dp"/>
+
+    <ImageView
+        android:id="@+id/experiment"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:visibility="gone"
+        app:srcCompat="@drawable/tube"/>
+
+    <TextView
+        android:id="@+id/final_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/experiment"
+        android:layout_centerHorizontal="true"
+        android:text="Ваш заказ успешно оплачен!"
+        android:visibility="gone"
+        android:layout_marginTop="30dp"
+        android:textColor="#00B712"
+        android:textStyle="bold"
+        android:textSize="22sp"/>
+
+    <TextView
+        android:id="@+id/infoTextPay_first"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/final_msg"
+        android:visibility="gone"
+        android:textSize="16dp"
+        android:gravity="center"
+        android:text="Вам осталось дождаться приезда медсестры и сдать анализы. До скорой встречи!" />
+
+    <TextView
+        android:id="@+id/infoTextPay_second"
+        android:layout_width="215dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="12dp"
+        android:visibility="gone"
+        android:layout_below="@+id/infoTextPay_first"
+        android:textSize="16dp"
+        android:gravity="left"
+        android:text="Не забудьте ознакомиться с" />
+
+
+    <ImageView
+        android:id="@+id/rules"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="450dp"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/infoTextPay_second"
+        android:visibility="gone"
+        app:srcCompat="@drawable/rules" />
+
+    <TextView
+        android:id="@+id/infoTextPay_third"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="280dp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/infoTextPay_first"
+        android:visibility="gone"
+        android:textSize="16dp"
+        android:textColor="@color/buttonLogInActive"
+        android:gravity="left"
+        android:text="правилами" />
+
+    <TextView
+        android:id="@+id/infoTextPay_fourth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@+id/infoTextPay_second"
+        android:visibility="gone"
+        android:textSize="16dp"
+        android:gravity="left"
+        android:textColor="@color/buttonLogInActive"
+        android:text="подготовки к сдаче анализов" />
+
+    <Button
+        android:id="@+id/button_end"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="640dp"
+        android:background="@drawable/btn_delete"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:text="Чек покупки"
+        android:textAllCaps="false"
+        android:textColor="@color/buttonLogInActive"
+        android:textSize="17sp" />
+
+
+    <Button
+        android:id="@+id/btn_end"
+        android:layout_width="370dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/btn_next_reg"
+        android:textColor="#FFFFFF"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_end"
+        android:visibility="gone"
+        android:text="На главную"/>
+
+</RelativeLayout>
